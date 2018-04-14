@@ -1,10 +1,18 @@
+import pygame, sys
+from pygame.locals import *
+pygame.init()
+
+def update():
+    print("update")
+
+def draw():
+    print("draw")
 
 
 if __name__ == "__main__":
-    running = True
-    while running:
-        prompt = input("Continue ? (Y/N)")
-        if prompt[0] != 'Y' or prompt[0] != 'y':
-            running = False
+    screen = pygame.display.set_mode((1440, 900))
 
-
+    while True:
+        update()
+        draw()
+        pygame.time.delay(16)
