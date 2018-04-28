@@ -30,6 +30,10 @@ class Note:
     tick = 0
     column = 0
     hit = False
+    def __init__(self, tick, column):
+        self.tick = tick
+        self.colum = column
+
 
 # functions
 def update():
@@ -61,25 +65,7 @@ def draw():
 
 
 def init_notes():
-    note1 = Note()
-    note1.column = 3
-    note1.tick = 600
-    notes.append(note1)
-
-    note2 = Note()
-    note2.column = 2
-    note2.tick = 450
-    notes.append(note2)
-
-    note3 = Note()
-    note3.column = 1
-    note3.tick = 200
-    notes.append(note3)
-
-    note4 = Note()
-    note4.column = 0
-    note4.tick = 500
-    notes.append(note4)
+    notes.append(Note(100,1))
 
 
 def proccess_input(column):
