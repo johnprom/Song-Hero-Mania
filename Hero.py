@@ -13,6 +13,7 @@ myfont = pygame.font.SysFont("monospace", 64)
 
 screen = pygame.display.set_mode((1440, 900))
 
+# circle textures
 circle0 = pygame.image.load("redcircle.png")
 circle0 = pygame.transform.scale(circle0, (100, 100))
 circle1 = pygame.image.load("yellowcircle.png")
@@ -44,8 +45,8 @@ class Note:
         self.tick = tick
         self.column = column
 
-
 # functions
+
 def update():
     global tick_current
     tick_current += tick_rate/frame_rate
@@ -82,6 +83,7 @@ def draw():
 
     pygame.display.flip()
 
+# "song" notes
 def init_notes():
     notes.append(Note(100, 3))
     notes.append(Note(120, 2))
@@ -130,6 +132,7 @@ def init_notes():
     notes.append(Note(777, 2))
     notes.append(Note(784, 2))
 
+# decides weather to award point
 def proccess_input(column):
     for note in notes:
         if not note.column == column:
@@ -142,9 +145,8 @@ def proccess_input(column):
             score += score_calulator(note.tick)
             print (score)
 
-
 def score_calulator(note_tick):
-    return 16-abs(note_tick - tick_current)
+   return 16-abs(note_tick - tick_current)
 
 def restart_game():
     notes.clear()
@@ -158,6 +160,7 @@ if __name__ == "__main__":
 
     init_notes()
 
+    # get user key data
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
