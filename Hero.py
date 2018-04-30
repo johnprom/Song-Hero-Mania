@@ -53,10 +53,7 @@ def update():
     global tick_current
     tick_current += tick_rate/frame_rate
 
-
-def draw():
-    screen.fill(green)
-
+def draw_hitnotes():
     for note in notes:
         x = 350 + 200 * note.column
         y = 600 + (-1 * note.tick + tick_current) * scroll_speed
@@ -71,23 +68,62 @@ def draw():
         elif note.column == 3:
             screen.blit(circle3, circle_rect)
 
-    # draw score
-    label = myfont.render("Score - " + str(int(score)), 1, (255, 255, 255))
-    screen.blit(label, (510, 150))
-
-    # draws hit location circles
+def draw_hit_locations():
     for i in range(0, 4):
         circle_rect.x = 345 + 200 * i
         circle_rect.y = 600
         screen.blit(circle_hit_box, circle_rect)
 
+def draw():
+    screen.fill(green)
+    draw_hitnotes()
+    draw_hit_locations()
+
+    # draw score
+    label = myfont.render("Score - " + str(int(score)), 1, (255, 255, 255))
+    screen.blit(label, (510, 150))
+
     pygame.display.flip()
 
-
 def init_notes():
-    notes.append(Note(100, 1))
-    notes.append(Note(200, 2))
-    notes.append(Note(300, 3))
+    notes.append(Note(10, 2))
+    notes.append(Note(37, 1))
+    notes.append(Note(68, 0))
+    notes.append(Note(85, 3))
+    notes.append(Note(100, 3))
+    notes.append(Note(115, 3))
+    notes.append(Note(130, 3))
+    notes.append(Note(145, 3))
+    notes.append(Note(155, 3))
+    notes.append(Note(165, 3))
+    notes.append(Note(196, 2))
+    notes.append(Note(208, 2))
+    notes.append(Note(218, 2))
+    notes.append(Note(230, 0))
+    notes.append(Note(242, 3))
+    notes.append(Note(254, 2))
+    notes.append(Note(266, 1))
+    notes.append(Note(278, 2))
+    notes.append(Note(290, 1))
+    notes.append(Note(302, 3))
+    notes.append(Note(314, 2))
+    notes.append(Note(577, 3))
+    notes.append(Note(604, 3))
+    notes.append(Note(631, 2))
+    notes.append(Note(658, 3))
+    notes.append(Note(685, 1))
+    notes.append(Note(712, 2))
+    notes.append(Note(739, 1))
+    notes.append(Note(766, 0))
+    notes.append(Note(793, 1))
+    notes.append(Note(820, 2))
+    notes.append(Note(847, 1))
+    notes.append(Note(874, 2))
+    notes.append(Note(901, 1))
+    notes.append(Note(928, 2))
+    notes.append(Note(955, 0))
+    notes.append(Note(982, 0))
+    notes.append(Note(1009, 0))
 
 def proccess_input(column):
     for note in notes:
