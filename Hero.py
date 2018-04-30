@@ -11,9 +11,6 @@ pygame.display.set_caption('Song Hero Mania')
 # global variables
 myfont = pygame.font.SysFont("monospace", 64)
 
-pygame.mixer.music.load("music.mp3")
-pygame.mixer.music.play(0,0.0)
-
 screen = pygame.display.set_mode((1440, 900))
 
 circle0 = pygame.image.load("redcircle.png")
@@ -29,7 +26,7 @@ circle_hit_box = pygame.transform.scale(circle_hit_box, (110, 110))
 circle_rect = circle0.get_rect()
 
 green = 0, 0, 0
-scroll_speed = 5
+scroll_speed = 14
 
 notes = []
 
@@ -86,44 +83,52 @@ def draw():
     pygame.display.flip()
 
 def init_notes():
-    notes.append(Note(10, 2))
-    notes.append(Note(37, 1))
-    notes.append(Note(68, 0))
-    notes.append(Note(85, 3))
     notes.append(Note(100, 3))
-    notes.append(Note(115, 3))
-    notes.append(Note(130, 3))
-    notes.append(Note(145, 3))
-    notes.append(Note(155, 3))
-    notes.append(Note(165, 3))
-    notes.append(Note(196, 2))
-    notes.append(Note(208, 2))
-    notes.append(Note(218, 2))
-    notes.append(Note(230, 0))
-    notes.append(Note(242, 3))
-    notes.append(Note(254, 2))
-    notes.append(Note(266, 1))
-    notes.append(Note(278, 2))
-    notes.append(Note(290, 1))
-    notes.append(Note(302, 3))
-    notes.append(Note(314, 2))
-    notes.append(Note(577, 3))
-    notes.append(Note(604, 3))
-    notes.append(Note(631, 2))
-    notes.append(Note(658, 3))
-    notes.append(Note(685, 1))
-    notes.append(Note(712, 2))
-    notes.append(Note(739, 1))
-    notes.append(Note(766, 0))
-    notes.append(Note(793, 1))
-    notes.append(Note(820, 2))
-    notes.append(Note(847, 1))
-    notes.append(Note(874, 2))
-    notes.append(Note(901, 1))
-    notes.append(Note(928, 2))
-    notes.append(Note(955, 0))
-    notes.append(Note(982, 0))
-    notes.append(Note(1009, 0))
+    notes.append(Note(120, 2))
+    notes.append(Note(140, 1))
+    notes.append(Note(160, 0))
+    notes.append(Note(180, 1))
+    notes.append(Note(200, 3))
+    notes.append(Note(215, 2))
+    notes.append(Note(230, 2))
+    notes.append(Note(245, 2))
+    notes.append(Note(260, 2))
+    notes.append(Note(280, 3))
+    notes.append(Note(300, 2))
+    notes.append(Note(320, 1))
+    notes.append(Note(340, 2))
+    notes.append(Note(360, 1))
+    notes.append(Note(375, 3))
+    notes.append(Note(390, 2))
+    notes.append(Note(415, 3))
+    notes.append(Note(425, 3))
+    notes.append(Note(435, 2))
+    notes.append(Note(445, 3))
+    notes.append(Note(455, 1))
+    notes.append(Note(465, 2))
+    notes.append(Note(475, 1))
+    notes.append(Note(490, 0))
+    notes.append(Note(505, 3))
+    notes.append(Note(520, 2))
+    notes.append(Note(535, 1))
+    notes.append(Note(550, 2))
+    notes.append(Note(565, 0))
+    notes.append(Note(580, 3))
+    notes.append(Note(595, 2))
+    notes.append(Note(610, 3))
+    notes.append(Note(625, 1))
+    notes.append(Note(640, 2))
+    notes.append(Note(650, 1))
+    notes.append(Note(660, 0))
+    notes.append(Note(670, 3))
+    notes.append(Note(680, 2))
+    notes.append(Note(690, 0))
+    notes.append(Note(700, 3))
+    notes.append(Note(725, 1))
+    notes.append(Note(735, 1))
+    notes.append(Note(770, 2))
+    notes.append(Note(777, 2))
+    notes.append(Note(784, 2))
 
 def proccess_input(column):
     for note in notes:
@@ -148,10 +153,6 @@ def restart_game():
     tick_current = 0
     global score
     score = 0
-    pygame.mixer.music.load("music.mp3")
-    pygame.mixer.music.play(0, 0.0)
-
-
 
 if __name__ == "__main__":
 
